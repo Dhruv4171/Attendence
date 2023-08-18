@@ -38,7 +38,9 @@ const Wrapper = styled.div`
             height:59.34px;
             border-radius:10px;
             background: #2F80ED;
+            border:1px solid #2F80ED;
             color:#fff;
+            font-size:16px;
             margin: 0px auto;
         }
     }  

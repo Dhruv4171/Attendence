@@ -1,10 +1,23 @@
 import { createStore } from "redux"
 
 const initialState={
-    users : []
+    logincred : [],
+    users : [],
+    loggedInUser : null
 }
 const reducer = (state =initialState,action) =>{
     switch (action.type) {
+        case "SIGN_UP":
+            return {
+                ...state,
+                logincred : [...state.logincred,action.payload]
+            }
+        case "LOG_IN":
+            const user = state.logincred.find((user)=>user.email === action.payload.email && user.password === action.payload.password)
+            return user ? {
+                ...state,
+                loggedInUser : user
+            }:state
         case "REGISTER_USER":
             return {
                 ...state,

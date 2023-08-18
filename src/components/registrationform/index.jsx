@@ -44,6 +44,7 @@ const RegistrationForm = () => {
         <input 
           type='date'
           value={dob}
+
           onChange={(e)=>setDOB(e.target.value)}
         />
         <input

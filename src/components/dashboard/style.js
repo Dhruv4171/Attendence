@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 const Wrapper = styled.div`
     width:400px;
+    margin:0px auto;
     line-spacing:0.15px;
     .personal_container{
         width:350px;
