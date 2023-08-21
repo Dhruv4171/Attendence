@@ -4,7 +4,9 @@ import RegistrationForm from "./components/registrationform";
 import Header from "./components/header";
 import SignUpForm from "./components/signupform";
 import { useSelector } from "react-redux";
-import LoginForm from "./components/loginform";
+import Login from "./components/login";
+import Registration from "./components/registration";
+import './app.css'
 
 
 function App() {
@@ -14,9 +16,8 @@ function App() {
     <Header />
     <Routes>
       <Route path="/" element={<SignUpForm/>}/>
-      <Route path="/loginform" element={loggedInUser?<Dashboard/>:<LoginForm/>}/>
-      <Route path="/signupform" element={<SignUpForm/>}/>
-      <Route path="/registrationform" element={<RegistrationForm />}/>
+      <Route path="/login" element={loggedInUser?<Dashboard/>:<Login/>}/>
+      <Route path="/register" element={<Registration />}/>
       <Route path="/dashboard" element={<Dashboard />}/>
     </Routes>
     </BrowserRouter>

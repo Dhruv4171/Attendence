@@ -51,7 +51,7 @@ const SignUpForm = () => {
           value={password}
           placeholder='Password'
           onChange={(e)=>{setPasswod(e.target.value)
-                          validatePassword(e.target.value,confirmPassword)}}
+                      validatePassword(e.target.value,confirmPassword)}}
         />
         <input 
           type='password'
@@ -61,7 +61,7 @@ const SignUpForm = () => {
                           validatePassword(password,e.target.value)}}
         />
         <select required value={role} onChange={(e)=>setRole(e.target.value)}>
-            <option disabled selected>--SelectRole--</option>
+            <option  value={null} disabled selected>--SelectRole--</option>
             <option value='Student'>STUDENT</option>
             <option value='Faculty'>FACULTY</option>
         </select>

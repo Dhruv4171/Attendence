@@ -1,13 +1,41 @@
 import { styled } from "styled-components";
 
 const Wrapper = styled.div`
-    width:400px;
+    display:flex;
+    justify-content:space-between;
+    background-color:#474746;
     margin:0px auto;
-    .header_top{
-        font-size:16px;
-        text-align:center;
-        background:#2F80ED;
+    widht:500px;
+    .header_left{
+        display:flex;
         color:#fff;
+        gap:15px;
+        button{
+            background-color:#474746; 
+            border:1px solid #474746;
+        }
+        img{
+            height:16px;
+        }
+        h1{
+            margin-top:5px;   
+        }
+    }
+    .header_right{
+        display:flex;
+        gap:15px;
+        a{
+            text-decoration:none;
+            color:#fff;
+            font-size:1rem;
+            background-color:#474746;
+            margin:5px 2px;
+            padding:5px;
+            border-radius:3px;
+        }
+        a:hover{
+            background-color:#292;
+        }
     }
 `
 export default Wrapper
