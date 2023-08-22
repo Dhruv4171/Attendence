@@ -10,13 +10,20 @@ const Login = () => {
 
   const login = (e) => {
     e.preventDefault();
-    axios.get('https://server-api1-li2k.onrender.com/api/user/login')
+    axios.post('https://server-api1-li2k.onrender.com/api/user/login',{
+      contact,
+      password
+    })
       .then((res) => {
-        console.log(res.dat);
-        navigate('/profile');
+        console.log(res.data);
+        if(res.data.role === 'student'){
+          navigate('/studpanel')
+        }else
+        navigate('/facpanel')
       })
-      .catch((error) => {  // Changed from .then to .catch for error handling
+      .catch((error) => {  
         console.log('API Request Failed', error);
+        alert('Invalid Contact or Password')
       });
   };
 
@@ -35,7 +42,7 @@ const Login = () => {
           type='password'
           value={password}
           placeholder='Password'
-          onChange={(e) => setPassword(e.target.value)} {/* Corrected the function name */}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type='button'
