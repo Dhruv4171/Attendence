@@ -3,30 +3,39 @@ import { useNavigate } from 'react-router'
 import Wrapper from './style'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import StudentRole from '../studentrole'
 
 const SignUp = () => {
     const [name,setName] = useState('')
     const [contact,setContact] = useState('')
     const [password,setPasswod] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
+    const [branch,setBranch] = useState('')
+    const [year,setYear] = useState('')
     const [role,setRole] = useState('')
+    const [section, setSection] = useState('')
     const [passwordMatch,setPasswordMatch] = useState(true)
+
     const navigate = useNavigate()
+
     const validatePassword = (password,confirmPassword)=>{
       setPasswordMatch(password === confirmPassword)
     }
     const signUp = (e) =>{
-        e.preventDefault()
+      e.preventDefault()
         if(passwordMatch){
           axios.post("https://server-api1-li2k.onrender.com/api/user/add",{
             name,
             contact,
             password,
-            role
+            branch,
+            role,
+            year,
+            section
           }).then(res=>{
               console.log(res)
               if(res.data.bsuccess) {
-                navigate('/updateprofile')
+                // navigate('/updateprofile')
               }
           })
           .catch(error =>{
@@ -40,7 +49,8 @@ const SignUp = () => {
   return (
     <Wrapper>  
       <div className="inner">
-      <h1>Sign up</h1>
+        <div className='content_container'>
+        <h1>Sign up</h1>
         <p>Kindly enter your details</p>
         <input 
           type='text'
@@ -73,6 +83,12 @@ const SignUp = () => {
             <option value='student'>STUDENT</option>
             <option value='faculty'>FACULTY</option>
         </select>
+        <div className='container'>
+            {role === 'student' && (
+              <StudentRole branch={branch} setBranch={setBranch} year={year} setYear={setYear} section={section} setSection={setSection}/>
+            )}
+        </div>
+        </div>
         <input
           type='button'
           value='Sign up'
