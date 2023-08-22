@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import Wrapper from './style'
 
-const RegistrationForm = () => {
+const UpdateProfile = () => {
     const [name,setName] = useState('')
     const [gender,setGender]=useState('')
     const [dob,setDOB] = useState('')
@@ -23,13 +23,12 @@ const RegistrationForm = () => {
         type : 'REGISTER_USER',
         payload : {id,name,gender,dob,address,city,state,country,contact,email,img}
       })
-      navigate('/dashboard')
+      navigate('/profile')
     }
   return (
     <Wrapper>
-      <h1>Regitration</h1>
-      <p>Kindly enter your details</p>
-      <form action=''>
+      <div className="inner">
+      <h1>Update Your Profile</h1>
         <input 
           type='text'
           value={name}
@@ -37,9 +36,9 @@ const RegistrationForm = () => {
           onChange={(e)=>setName(e.target.value)}
         />
         <select required value={gender} onChange={(e)=>setGender(e.target.value)}>
-            <option disabled selected>--SelectGender--</option>
-            <option value='Female'>FEMALE</option>
+            <option value='' selected disabled> --SelectGender-- </option>
             <option value='Male'>Male</option>
+            <option value='Female'>FEMALE</option>
         </select>
         <input 
           type='date'
@@ -92,9 +91,9 @@ const RegistrationForm = () => {
           value='Register'
           onClick={register}
         /> 
-      </form>
+      </div>
     </Wrapper>
   )
 }
 
-export default RegistrationForm
+export default UpdateProfile

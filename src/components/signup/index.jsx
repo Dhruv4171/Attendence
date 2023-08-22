@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import Wrapper from './style'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-const SignUpForm = () => {
+const SignUp = () => {
     const [name,setName] = useState('')
     const [contact,setContact] = useState('')
     const [password,setPasswod] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
     const [role,setRole] = useState('')
     const [passwordMatch,setPasswordMatch] = useState(true)
-    const dispatch = useDispatch()
     const navigate = useNavigate()
     const validatePassword = (password,confirmPassword)=>{
       setPasswordMatch(password === confirmPassword)
@@ -19,11 +18,20 @@ const SignUpForm = () => {
     const signUp = (e) =>{
         e.preventDefault()
         if(passwordMatch){
-          dispatch({
-            type : 'SIGN_UP',
-            payload : {name,contact,role,password}
+          axios.post("https://server-api1-li2k.onrender.com/api/user/add",{
+            name,
+            contact,
+            password,
+            role
+          }).then(res=>{
+              console.log(res)
+              if(res.data.bsuccess) {
+                navigate('/updateprofile')
+              }
           })
-          navigate('/registrationform')
+          .catch(error =>{
+              console.error('API request failed',error);
+          });
         }
         else{
           alert('Check password & confirm password field')
@@ -31,9 +39,9 @@ const SignUpForm = () => {
     } 
   return (
     <Wrapper>  
+      <div className="inner">
       <h1>Sign up</h1>
-      <p>Kindly enter your details</p>
-      <form action=''>
+        <p>Kindly enter your details</p>
         <input 
           type='text'
           value={name}
@@ -61,19 +69,19 @@ const SignUpForm = () => {
                           validatePassword(password,e.target.value)}}
         />
         <select required value={role} onChange={(e)=>setRole(e.target.value)}>
-            <option  value={null} disabled selected>--SelectRole--</option>
-            <option value='Student'>STUDENT</option>
-            <option value='Faculty'>FACULTY</option>
+            <option value='' selected disabled>--SelectRole--</option>
+            <option value='student'>STUDENT</option>
+            <option value='faculty'>FACULTY</option>
         </select>
         <input
           type='button'
           value='Sign up'
           onClick={signUp}
         /> 
-      </form>
       <p className='bottom_text'>Already have an account?<Link className='link' to='/loginform'>Login</Link></p>
+      </div>
     </Wrapper>
   )
 }
 
-export default SignUpForm
+export default SignUp

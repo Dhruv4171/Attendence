@@ -1,11 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./components/dashboard";
-import RegistrationForm from "./components/registrationform";
 import Header from "./components/header";
-import SignUpForm from "./components/signupform";
+import SignUp from "./components/signup";
 import { useSelector } from "react-redux";
 import Login from "./components/login";
-import Registration from "./components/registration";
+import Profile from "./components/profile";
+import UpdateProfile from "./components/updateprofile";
 import './app.css'
 
 
@@ -15,10 +14,10 @@ function App() {
     <BrowserRouter>
     <Header />
     <Routes>
-      <Route path="/" element={<SignUpForm/>}/>
-      <Route path="/login" element={loggedInUser?<Dashboard/>:<Login/>}/>
-      <Route path="/register" element={<Registration />}/>
-      <Route path="/dashboard" element={<Dashboard />}/>
+      <Route path="/" element={<SignUp/>}/>
+      <Route path="/login" element={loggedInUser?<Profile/>:<Login/>}/>
+      <Route path="/updateprofile" element={<UpdateProfile/>}/>
+      <Route path="/profile" element={<Profile />}/>
     </Routes>
     </BrowserRouter>
   );
