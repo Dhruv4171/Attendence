@@ -10,6 +10,7 @@ import Facpanel from "./components/facpanel";
 import PageError from "./components/pageError";
 import HeaderFacultyPanel from "./components/headerfacultypanel";
 import Header from "./components/header";
+import Footer from "./components/footer";
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Route path='/facpanel' element={<><HeaderFacultyPanel/><Facpanel/></>}/>
       <Route path = '/*' element = {<PageError />} />
     </Routes>
+    <Footer/>
     </BrowserRouter>
   );
 }
