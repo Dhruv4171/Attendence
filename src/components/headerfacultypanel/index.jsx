@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
 import { IconContext } from 'react-icons';
-const Header = () => {
+const HeaderFacultyPanel = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -18,14 +18,14 @@ const Header = () => {
       </div>
       <div>
         <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
-        <li>
-            <Link className='menu-item' to='/signup' onClick={toggleMenu}>
-              Sign Up
+          <li>
+            <Link className='menu-item' to='/updateprofile' onClick={toggleMenu}>
+              Update Profile
             </Link>
           </li>
           <li>
-            <Link className='menu-item' to='/login' onClick={toggleMenu}>
-              Login
+            <Link className='menu-item' to='/facpanel' onClick={toggleMenu}>
+              Faculty Panel
             </Link>
           </li>
         </ul>
@@ -39,4 +39,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderFacultyPanel;
