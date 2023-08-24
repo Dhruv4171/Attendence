@@ -18,7 +18,7 @@ const StudentRole = ({branch,setBranch,year,setYear,section,setSection}) => {
       <option value='fourthyr'>IV</option>
   </select>
   <select required value={section} onChange={(e)=>setSection(e.target.value)}>
-      <option value='' selected disabled>--SelectYear--</option>
+      <option value='' selected disabled>--SelectSection--</option>
       <option value='a'>A</option>
       <option value='b'>B</option>
       <option value='c'>C</option>
