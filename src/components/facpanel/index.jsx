@@ -3,7 +3,7 @@ import Wrapper from './style'
 import { services } from '../../services'
 import { useNavigate } from 'react-router'
 
-const Facltpanel = () => {
+const Facpanel = () => {
   const [sections, setSections] = useState([])
   const [filteredSections, setFilteredSections] = useState(sections)
 
@@ -44,4 +44,4 @@ const Facltpanel = () => {
   )
 }
 
-export default Facltpanel
+export default Facpanel
