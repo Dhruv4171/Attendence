@@ -14,8 +14,8 @@ const StudentRole = ({ section, setSection }) => {
   }, []);
   return (
     <div>
-      <select required value={section} onChange={(e) => setSection(e.target.value)}>
-        <option value='' selected disabled>--SelectYear--</option>
+      <input list="sections" name="section" id="section"/>
+      <datalist id="sections" required value={section} onChange={(e) => setSection(e.target.value)}>
         {
           sections.map(sec => {
             return (<option value={sec.id}>
@@ -23,7 +23,7 @@ const StudentRole = ({ section, setSection }) => {
             </option>)
           })
         }
-      </select>
+      </datalist>
     </div>
   )
 }
