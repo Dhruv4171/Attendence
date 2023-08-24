@@ -1,37 +1,79 @@
 import { styled } from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
     display:flex;
+    align-item:center;
     justify-content:space-between;
-    background-color:#474746;
-    margin:0px auto;
-    widht:500px;
+    background:#474746;
+    padding:20px 80px;
     .header_left{
-        display:flex;
         color:#fff;
-        gap:15px;
-        button{
-            background-color:#474746; 
-            border:1px solid #474746;
-        }
-        h1{
-            margin-top:5px;   
-        }
     }
-    .header_right{
+    .menu{
         display:flex;
-        gap:15px;
+        align-item:center;
+        justify-content:center;
+        li{
+            list-style:none;
+            padding:0 20px;
+            position:relative;
+        }
         a{
             text-decoration:none;
             color:#fff;
             font-size:1rem;
-            background-color:#474746;
-            margin:5px 2px;
-            padding:5px;
-            border-radius:3px;
+            font-weight:600;
+            transition:0.3s ease-in-out;
         }
         a:hover{
-            background-color:#292;
+            color:#292;
+        }
+    }
+    .hamburger-icon{
+        display:none;
+    }
+    @media screen and (max-width:769px){
+        .menu.open{
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+            justify-content:flex-start;
+            position:absolute;
+            top:62px;
+            right:0px;
+            width:200px;
+            transition:0.3s ease-in-out;
+            height:100vh-100px;
+            opacity:1;
+            z-index:1;
+            background:#474647;
+            padding:40px 0 0 10px;
+            li{
+                margin-top:10px;
+            }
+        }
+        .menu{
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+            justify-content:flex-start;
+            position:fixed;
+            top:62px;
+            right:-300px;
+            transition:0.3s ease-in-out;
+            z-index:1;
+            opacity:0.5;
+            width:200px;
+            height:100vh;
+            background:#474647;
+            padding:40px 0 0 10px;
+            li{
+                margin-top:10px;
+            }
+            
+        }
+        .hamburger-icon{
+            display:block;
         }
     }
 `

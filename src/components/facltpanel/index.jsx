@@ -1,17 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Wrapper from './style'
-import { Link } from 'react-router-dom'
+import { services } from '../../services'
+import { useNavigate } from 'react-router'
 
 const Facltpanel = () => {
+  const [sections, setSections] = useState([])
+  const [filteredSections, setFilteredSections] = useState(sections)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    services.getSections()
+      .then(res => {
+        setSections(res.data)
+        setFilteredSections(res.data)
+      })
+  }, [])
+
+  const filter = (e) => {
+    setFilteredSections([...sections].filter(section => section.name.toLowerCase().startsWith(e.target.value.toLowerCase())))
+  }
+
+  const gotoSheet = (section) => {
+    navigate(`/markattd?sectionId=${section.id}`)
+  }
   return (
     <Wrapper>
-     <div className='dashboard'>
-     <h2>Faculty Dashboard</h2> 
-     </div>
-    <div className='links'>
-    <Link className='link' to ='/Viewattendance'>View Attendance</Link>
-    <Link className='link' to  ='/Markattendance'>Mark Attendance</Link>
-    </div> 
+      <div className="inner">
+
+        <input
+          type="search"
+          placeholder='Filter the sections here ...'
+          onChange={filter}
+        />
+
+        <div className="sections">
+          {
+            filteredSections.map(section => <input type="button" key={section.id} className='section' value={section.name} onClick={e => gotoSheet(section)} />)
+          }
+        </div>
+      </div>
     </Wrapper>
   )
 }

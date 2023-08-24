@@ -1,25 +1,31 @@
 import { styled } from "styled-components";
 
-const Wrapper = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 0px;
-padding: 0px;
-.links {
-  margin-top: 20px;
-}
+const Wrapper = styled.section`
 
-.link {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
-  background-color: #474746;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
- `
+    input[type=search]{
+        width : 100%;
+        border : none;
+        padding : 10px;
+        margin:10px auto;
+        box-shadow:2px 2px 2px #464546; 
+    }
+    .sections{
+        display : flex;
+        flex-wrap : wrap;
+        margin:auto 5px;
+    }
 
- export default Wrapper
+    .section{
+        min-width : 120px;
+        min-height : 120px;
+        text-align : center;
+        line-height : 100px;
+        flex : 1;
+        margin-left:5px;
+        border : solid thin #ccc;
+        font-size : 1.2rem;
+    }
+
+`
+
+export default Wrapper

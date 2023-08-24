@@ -3,7 +3,8 @@ import { createStore } from "redux"
 const initialState={
     logincred : [],
     users : [],
-    loggedInUser : null
+    loggedInUser : null,
+    isPresent: null
 }
 const reducer = (state =initialState,action) =>{
     switch (action.type) {

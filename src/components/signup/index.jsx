@@ -4,7 +4,6 @@ import Wrapper from './style'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import StudentRole from '../studentrole'
-
 const SignUp = () => {
     const [name,setName] = useState('')
     const [contact,setContact] = useState('')
@@ -22,23 +21,6 @@ const SignUp = () => {
       setPasswordMatch(password === confirmPassword)
     }
     
-  //   const roleHandler=(e)=>{
-  //     setRole(e.target.value)
-  //     if(e.target.value === 'student'){
-  //       <StudentRole branch={branch} setBranch={setBranch} year={year} setYear={setYear} section={section} setSection={setSection}/>
-  //     }
-  //   else{
-  //     let content = `
-  //     <input type="checkbox" id="branch" value=computer science' onclick=${(e)=>setBranch(e.target.value)}/>
-  //     <label for="branch"> CS </label><br>
-  //     <input type="checkbox" id="branch" value="mechanical" onclick=${(e)=>setBranch(e.target.value)}/>
-  //     <label for="branch"> ME </label><br>
-  //   `
-  //     let contentContainer=document.querySelector('.container')
-  //     contentContainer.innerHTML= content;
-  //   } 
-  // }
-
     const signUp = (e) =>{
       e.preventDefault()
         if(passwordMatch){
@@ -53,7 +35,12 @@ const SignUp = () => {
           }).then(res=>{
               console.log(res)
               if(res.data.bsuccess) {
-                // navigate('/updateprofile')
+                if(res.data.role === 'student'){
+                  navigate('/studpanel')
+                }
+                else{
+                  navigate('/facpanel')
+                }
               }
           })
           .catch(error =>{
@@ -101,7 +88,7 @@ const SignUp = () => {
             <option value='student'>STUDENT</option>
             <option value='faculty'>FACULTY</option>
         </select>
-        <div className='container'>
+        <div className='stu-container'>
             {role === 'student' && (
               <StudentRole branch={branch} setBranch={setBranch} year={year} setYear={setYear} section={section} setSection={setSection}/>
             )}
