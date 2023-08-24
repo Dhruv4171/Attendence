@@ -10,6 +10,7 @@ import StudPanel from "./components/studpanel";
 import Facpanel from "./components/facpanel";
 
 
+
 function App() {
   const loggedInUser = useSelector(state=>state.loggedInUser)
   return (
@@ -17,7 +18,7 @@ function App() {
     <Header />
     <Routes>
       <Route path="/" element={<SignUp/>}/>
-      <Route path="/login" element={loggedInUser?<Profile/>:<Login/>}/>
+      <Route path="/login" element={loggedInUser ? <Profile /> : <Login />} />
       <Route path="/updateprofile" element={<UpdateProfile/>}/>
       <Route path="/profile" element={<Profile />}/>
       <Route path='/studpanel' element={<StudPanel />}/>

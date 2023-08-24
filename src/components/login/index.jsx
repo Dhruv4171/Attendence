@@ -17,7 +17,7 @@ const Login = () => {
       .then((res) => {
         console.log(res.data);
         if(res.data.role === 'student'){
-          navigate('/studpanel')
+          navigate('/profile')
         }else
         navigate('/facpanel')
       })
@@ -49,7 +49,7 @@ const Login = () => {
           value='Log in'
           onClick={login}
         />
-        <p className='bottom_text'>Don't have an account?<Link className='link' to='/signupform'>Sign Up</Link></p>
+        <p className='bottom_text'>Don't have an account?<Link className='link' to='/'>Sign Up</Link></p>
       </div>
     </Wrapper>
   );
