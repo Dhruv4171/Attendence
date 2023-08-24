@@ -19,7 +19,7 @@ const Login = () => {
         if(res.data.role === 'student'){
           navigate('/studpanel')
         }else
-        navigate('/facpanel')
+        navigate('/facltpanel')
       })
       .catch((error) => {  
         console.log('API Request Failed', error);

@@ -1,18 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Wrapper from './style'
-
+import React, { useState } from 'react';
+import Wrapper from './style';
+import Menu from '../menu';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { ImCross } from 'react-icons/im';
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <Wrapper>
-          <div className='header_left'>
-            <h1>Attendance-App</h1>
-          </div>
-          <div className='header_right'>
-            <Link className='link' to='/login'>Login</Link>
-          </div>       
+      <div className='header_left'>
+        <h1>Attendance-App</h1>
+      </div>
+      <div>
+        <div className='hamburger-icon' onClick={toggleMenu}>
+          {isMenuOpen?<ImCross/>:<GiHamburgerMenu/>}
+        </div>
+        <Menu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

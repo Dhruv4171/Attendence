@@ -14,9 +14,6 @@ const Wrapper = styled.div`
             background-color:#474746; 
             border:1px solid #474746;
         }
-        img{
-            height:16px;
-        }
         h1{
             margin-top:5px;   
         }

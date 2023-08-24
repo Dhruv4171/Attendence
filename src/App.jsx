@@ -7,7 +7,7 @@ import Profile from "./components/profile";
 import UpdateProfile from "./components/updateprofile";
 import './app.css'
 import StudPanel from "./components/studpanel";
-import Facpanel from "./components/facpanel";
+import Facltpanel from "./components/facltpanel";
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <Route path="/updateprofile" element={<UpdateProfile/>}/>
       <Route path="/profile" element={<Profile />}/>
       <Route path='/studpanel' element={<StudPanel />}/>
-      <Route path='/facpanel' element={<Facpanel />}/>
+      <Route path='/facpanel' element={<Facltpanel />}/>
     </Routes>
     </BrowserRouter>
   );
