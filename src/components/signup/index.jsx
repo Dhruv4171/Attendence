@@ -30,14 +30,7 @@ const SignUp = () => {
             section
           }).then(res=>{
               console.log(res)
-              if(res.data.bsuccess) {
-                if(res.data.role === 'student'){
-                  navigate('/studpanel')
-                }
-                else{
-                  navigate('/facpanel')
-                }
-              }
+              navigate('/login')
           })
           .catch(error =>{
               console.error('API request failed',error);

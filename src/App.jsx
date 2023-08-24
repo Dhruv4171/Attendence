@@ -11,6 +11,8 @@ import PageError from "./components/pageError";
 import HeaderFacultyPanel from "./components/headerfacultypanel";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import MarkAttd from "./components/markattd";
+import ForgotPass from "./components/forgotpass";
 
 
 
@@ -24,6 +26,8 @@ function App() {
       <Route path="/profile" element={<Profile />}/>
       <Route path='/studpanel' element={<><HeaderStudentPanel/><StudPanel /></>}/>
       <Route path='/facpanel' element={<><HeaderFacultyPanel/><Facpanel/></>}/>
+      <Route path = '/markattd' element = { <MarkAttd />} />
+      <Route path = '/forgotpass' element = {<ForgotPass />} />
       <Route path = '/*' element = {<PageError />} />
     </Routes>
     <Footer/>

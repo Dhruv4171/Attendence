@@ -14,7 +14,7 @@ const StudentRole = ({ section, setSection }) => {
   }, []);
   return (
     <div>
-      <input list="sections" name="section" id="section"/>
+      <input list="sections" name="section" id="section" placeholder='---Select Section---'/>
       <datalist id="sections" required value={section} onChange={(e) => setSection(e.target.value)}>
         {
           sections.map(sec => {
