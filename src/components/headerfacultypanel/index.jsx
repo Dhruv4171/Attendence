@@ -23,14 +23,14 @@ const HeaderFacultyPanel = () => {
       </div>
       <div>
         <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
-          <li>
-            <Link className='menu-item' to='/updateprofile' onClick={toggleMenu}>
-              Update Profile
+        <li>
+            <Link className='menu-item' to='/facpanel' onClick={toggleMenu}>
+              Home
             </Link>
           </li>
           <li>
-            <Link className='menu-item' to='/facpanel' onClick={toggleMenu}>
-              Faculty Panel
+            <Link className='menu-item' to='/updateprofile' onClick={toggleMenu}>
+              Update Profile
             </Link>
           </li>
           <li>

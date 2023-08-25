@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { services } from '../../services';
 import axios from 'axios';
-
+import { useParams } from 'react-router';
 const MarkAttd = () => {
-    // let sectionId = window.location.search.split('=')[1];
-    // let date = new Date();
+    const { sectionId } = useParams();
+    const { studentId } = useParams();
+    let date = new Date();
 
     const [students, setStudents] = useState([]);
     const [currentStudentIndex, setCurrentStudentIndex] = useState(0);

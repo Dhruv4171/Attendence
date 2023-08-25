@@ -24,6 +24,11 @@ const HeaderStudentPanel = () => {
       </div>
       <div>
         <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
+        <li>
+            <Link className='menu-item' to='/studpanel' onClick={toggleMenu}>
+              Home
+            </Link>
+          </li>
           <li>
             <Link className='menu-item' to='/updateprofile' onClick={toggleMenu}>
               Update Profile
@@ -32,11 +37,6 @@ const HeaderStudentPanel = () => {
           <li>
             <Link className='menu-item' to='/profile' onClick={toggleMenu}>
               View Profile
-            </Link>
-          </li>
-          <li>
-            <Link className='menu-item' to='/studpanel' onClick={toggleMenu}>
-              Student Panel
             </Link>
           </li>
           <li>

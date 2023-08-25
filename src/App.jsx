@@ -23,7 +23,7 @@ function App() {
       <Route path="/profile" element={<Profile />}/>
       <Route path='/studpanel' element={<><HeaderStudentPanel/><StudPanel />:</>}/>
       <Route path='/facpanel' element={<><HeaderFacultyPanel/><Facpanel/></>}/>
-      <Route path = '/markattd' element = { <MarkAttd />} />
+      <Route path="/markattd/:sectionId" element={<MarkAttd />} />
       <Route path = '/forgotpass' element = {<ForgotPass />} />
       <Route path = '/*' element = {<PageError />} />
     </Routes>
