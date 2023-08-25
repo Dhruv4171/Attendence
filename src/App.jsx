@@ -37,7 +37,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
             <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
-            <Route path="/subject" element={<Subject />} />
+            <Route path="/subject" element={<><HeaderFacultyPanel /><Subject /></>} />
             <Route path="/markattd" element={<MarkAttd />} />
             <Route path="/*" element={<PageError />} />
           </>

@@ -27,6 +27,7 @@ const Facpanel = () => {
 
   return (
     <Wrapper>
+      <h1>Select Section</h1>
       <div className="inner">
 
         <input

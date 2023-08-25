@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
+
 // import { useParams } from 'react-router';
 const MarkAttd = () => {
     let sectionId = new URLSearchParams(window.location.search).get('sectionId');
@@ -10,6 +12,8 @@ const MarkAttd = () => {
     const [students, setStudents] = useState([]);
     const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
     const [attendance, setAttendance] = useState([])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/user/read')
@@ -35,6 +39,8 @@ const MarkAttd = () => {
         })
         .then(res => {
                 console.log('Attendance marked successfully:', res.data);
+                alert("Attendance Marked Successfully!!")
+                navigate('/facpanel')
                 // You can perform any additional actions after marking attendance
         })
         .catch(error => {

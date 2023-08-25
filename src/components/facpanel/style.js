@@ -25,7 +25,10 @@ const Wrapper = styled.section`
         border : solid thin #ccc;
         font-size : 1.2rem;
     }
-
+    h1 {
+        text-align: center; 
+        
+    }
 `
 
 export default Wrapper

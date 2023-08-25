@@ -12,10 +12,10 @@ const Subject = () => {
     const navigate = useNavigate()
     useEffect(() => {
         services.getSubjects()
-          .then(res => {
-            setSubjects(res.data)
-            setfilteredSubjects(res.data)
-          })
+            .then(res => {
+                setSubjects(res.data)
+                setfilteredSubjects(res.data)
+            })
     }, [])
     const filter = (e) => {
         setfilteredSubjects([...subjects].filter(subject => subject.name.toLowerCase().startsWith(e.target.value.toLowerCase())))
@@ -23,25 +23,26 @@ const Subject = () => {
 
     const gotoSheet = (subject) => {
         navigate(`/markattd?sectionId=${sectionId}&subjectId=${subject.id}`)
-      }
+    }
 
     return (
         <Wrapper>
-      <div className="inner">
+            <h1>Select Subject</h1>
+            <div className="inner">
 
-        <input
-          type="search"
-          placeholder='Filter the subjects here ...'
-          onChange={filter}
-        />
+                <input
+                    type="search"
+                    placeholder='Filter the subjects here ...'
+                    onChange={filter}
+                />
 
-        <div className="subjects">
-          {
-            filteredSubjects.map(subject => <input type="button" key={subject.id} className='subject' value={subject.name} onClick={e => gotoSheet(subject)} />)
-          }
-        </div>
-      </div>
-    </Wrapper>
+                <div className="subjects">
+                    {
+                        filteredSubjects.map(subject => <input type="button" key={subject.id} className='subject' value={subject.name} onClick={e => gotoSheet(subject)} />)
+                    }
+                </div>
+            </div>
+        </Wrapper>
     )
 }
 
