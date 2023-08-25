@@ -23,39 +23,43 @@ function App() {
   );
   const handleLogin = () => {
     setIsLoggedIn(true);
-    window.location.reload();
+    window.location.reload(); 
   };
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false); 
+    }, 2000);
     if (!isLoggedIn) {
       window.localStorage.clear();
     }
   }, [isLoggedIn]);
   return (
     <BrowserRouter>
-      {isLoading ? <Loader /> : (
-        <Routes>
-          {isLoggedIn ? (
-            <>
-              <Route path="/updateprofile" element={<UpdateProfile />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
-              <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
-              <Route path="/subject" element={<><HeaderFacultyPanel /><Subject /></>} />
-              <Route path="/markattd" element={<MarkAttd />} />
-              <Route path="/loader" element={<Loader />} />
-              <Route path="/*" element={<PageError />} />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<><Header /><SignUp /></>} />
-              <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
-              <Route path="/forgotpass" element={<ForgotPass />} />
-              <Route path="/*" element={<PageError />} />
-            </>
-          )}
-        </Routes>
-      )}
-      <Footer />
+    {isLoading?<Loader />:(
+    <Routes>
+    {isLoggedIn ? (
+          <>
+            <Route path="/updateprofile" element={<UpdateProfile />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
+            <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
+            <Route path="/subject" element={<><HeaderFacultyPanel /><Subject /></>} />
+            <Route path="/markattd" element={<MarkAttd />} />
+            <Route path="/loader" element={<Loader/>}/>
+            <Route path="/*" element={<PageError />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<><Header /><SignUp /></>} />
+            <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
+            <Route path="/forgotpass" element={<ForgotPass />} />
+            <Route path="/*" element={<PageError />} />
+          </>
+        )}
+        <Footer/>
+    </Routes>
+    )}
+    
     </BrowserRouter>
   );
 }
