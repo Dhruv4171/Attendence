@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const Pr = () => {
     const [users, setUsers] = useState([])
-    const [ curruser, setCurruser ] = useState()
+    const [ curruser, setCurruser ] = useState({})
     const userContact = JSON.parse(window.localStorage.getItem('userinfo')).user.contact
     var foundUser = null
     useEffect( () => {
