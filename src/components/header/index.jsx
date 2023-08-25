@@ -19,7 +19,7 @@ const Header = () => {
       <div>
         <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
         <li>
-            <Link className='menu-item' to='/signup' onClick={toggleMenu}>
+            <Link className='menu-item' to='/' onClick={toggleMenu}>
               Sign Up
             </Link>
           </li>
