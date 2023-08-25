@@ -13,7 +13,7 @@ const ForgotPass = () => {
     const navigate = useNavigate()
     
     useEffect( () => {
-      axios.get('https://server-api1-li2k.onrender.com/api/user/read')
+      axios.get('https://quizattendace.onrender.com/api/user/read')
       .then((res) => {
         console.log(res.data);
         setUsers(res.data);
@@ -25,11 +25,13 @@ const ForgotPass = () => {
 
     const changePass = () => { 
       // console.log(contact)
-      users.map((user) => {
-        if (user.contact === contact){
+      users.forEach((user) => {
+        if (user.contact == contact){
           axios.post('https://quizattendace.onrender.com/api/user/resetPassword',
-          contact,
-          password)
+          {
+            contact,
+            password
+          })
           .then((res) => {
             alert("Hehehehehhe......Password changed Successfully.")
             // navigate('/')

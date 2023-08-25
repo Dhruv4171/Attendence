@@ -22,7 +22,7 @@ const SignUp = () => {
     const signUp = (e) =>{
       e.preventDefault()
         if(passwordMatch){
-          axios.post("https://server-api1-li2k.onrender.com/api/user/add",{
+          axios.post("https://quizattendace.onrender.com/api/user/add",{
             name,
             contact,
             password,

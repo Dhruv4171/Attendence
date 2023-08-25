@@ -10,11 +10,11 @@ const Login = () => {
 
   const login = (e) => {
     e.preventDefault();
-    axios.post('https://server-api1-li2k.onrender.com/api/user/login',{
+    axios.post('https://quizattendace.onrender.com/api/user/login',{
       contact,
       password
     })
-      .then((res) => {
+    .then((res) => {
         console.log(res.data);
         if(res.data.role === 'student'){
           navigate('/profile')

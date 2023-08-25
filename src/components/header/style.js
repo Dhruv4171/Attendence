@@ -5,7 +5,7 @@ const Wrapper = styled.nav`
     align-item:center;
     justify-content:space-between;
     background:#474746;
-    padding:20px 80px;
+    padding:20px 40px;
     .header_left{
         color:#fff;
     }

@@ -28,6 +28,12 @@ const Wrapper = styled.nav`
         a:hover{
             color:#292;
         }
+        .logout{
+            border:none;
+            padding:2px 4px;
+            color:#fff;
+            background:#292;
+        }
     }
     .hamburger-icon{
         display:none;

@@ -28,6 +28,9 @@ const HeaderStudentPanel = () => {
               Student Panel
             </Link>
           </li>
+          <li>
+            <button className='logout'>Logout</button>
+          </li>
         </ul>
       </div>
       <IconContext.Provider value={{ color: '#fff', size: '16px' }}>

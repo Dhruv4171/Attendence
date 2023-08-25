@@ -17,16 +17,22 @@ const Wrapper = styled.nav`
             list-style:none;
             padding:0 20px;
             position:relative;
-        }
-        a{
-            text-decoration:none;
-            color:#fff;
-            font-size:1rem;
-            font-weight:600;
-            transition:0.3s ease-in-out;
-        }
-        a:hover{
-            color:#292;
+            a{
+                text-decoration:none;
+                color:#fff;
+                font-size:1rem;
+                font-weight:600;
+                transition:0.3s ease-in-out;
+            }
+            a:hover{
+                color:#292;
+            }
+            .logout{
+                border:none;
+                padding:10px;
+                background:#454645;
+                height:16px;
+            }
         }
     }
     .hamburger-icon{
@@ -76,5 +82,6 @@ const Wrapper = styled.nav`
             display:block;
         }
     }
+    
 `
 export default Wrapper
