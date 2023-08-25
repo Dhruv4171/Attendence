@@ -15,42 +15,50 @@ import MarkAttd from "./components/markattd";
 import ForgotPass from "./components/forgotpass";
 import { useEffect, useState } from "react";
 import Subject from "./components/subject";
+import Loader from "./components/loader";
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("registered") === "true"
   );
   const handleLogin = () => {
     setIsLoggedIn(true);
-    window.location.reload(); // Refresh the page after successful login
+    window.location.reload();
   };
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
     if (!isLoggedIn) {
       window.localStorage.clear();
     }
   }, [isLoggedIn]);
   return (
     <BrowserRouter>
-    <Routes>
-    {isLoggedIn ? (
-          <>
-            <Route path="/updateprofile" element={<UpdateProfile />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
-            <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
-            <Route path="/subject" element={<><HeaderFacultyPanel /><Subject /></>} />
-            <Route path="/markattd" element={<MarkAttd />} />
-            <Route path="/*" element={<PageError />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<><Header /><SignUp /></>} />
-            <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
-            <Route path="/forgotpass" element={<ForgotPass />} />
-            <Route path="/*" element={<PageError />} />
-          </>
-        )}
-    </Routes>
-    <Footer/>
+      {isLoading ? <Loader /> : (
+        <Routes>
+          {isLoggedIn ? (
+            <>
+              <Route path="/updateprofile" element={<UpdateProfile />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
+              <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
+              <Route path="/subject" element={<><HeaderFacultyPanel /><Subject /></>} />
+              <Route path="/markattd" element={<MarkAttd />} />
+              <Route path="/loader" element={<Loader />} />
+              <Route path="/*" element={<PageError />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<><Header /><SignUp /></>} />
+              <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
+              <Route path="/forgotpass" element={<ForgotPass />} />
+              <Route path="/*" element={<PageError />} />
+            </>
+          )}
+        </Routes>
+      )}
+      <Footer />
     </BrowserRouter>
   );
 }
