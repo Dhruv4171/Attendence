@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Login = () => {
   const [contact, setContact] = useState('');
-  const [password, setPassword] = useState(''); // Corrected typo here
+  const [password, setPassword] = useState(''); 
   const navigate = useNavigate();
 
   const login = (e) => {

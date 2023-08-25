@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
 import { IconContext } from 'react-icons';
-const navigate = useNavigate('')
 const HeaderStudentPanel = () => {
+  const navigate = useNavigate('')
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
