@@ -13,6 +13,7 @@ const Pr = () => {
         .then((res) => {
             console.log(res.data);
             setUsers(res.data);
+            console.log(users);
         })
         .catch((error) => {  
             console.log(error.message);
@@ -36,7 +37,7 @@ const Pr = () => {
                     <div className='personal_container'>
                         <div className='img_container'>
                             <h1>Personal Details</h1>
-                            <img src={curruser.img} alt='user_img' />
+                            <img src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='user_img' />
                         </div>
                         <div className='details container'>
                             <p className='top_info'>Name</p>

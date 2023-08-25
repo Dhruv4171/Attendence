@@ -13,16 +13,14 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import MarkAttd from "./components/markattd";
 import ForgotPass from "./components/forgotpass";
-const loggedInUser = window.localStorage.getItem('registered')
-const isLoggedIn = loggedInUser === "true";
 function App() {
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<><Header/><SignUp/></>}/>
       <Route path="/login" element={<><Header/><Login/></>} />
-      <Route path="/updateprofile" element={isLoggedIn?<UpdateProfile/>:<Login/>}/>
-      <Route path="/profile" element={isLoggedIn?<Profile />:<Login />}/>
+      <Route path="/updateprofile" element={<UpdateProfile/>}/>
+      <Route path="/profile" element={<Profile />}/>
       <Route path='/studpanel' element={<><HeaderStudentPanel/><StudPanel />:</>}/>
       <Route path='/facpanel' element={<><HeaderFacultyPanel/><Facpanel/></>}/>
       <Route path = '/markattd' element = { <MarkAttd />} />

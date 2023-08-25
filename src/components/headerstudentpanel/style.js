@@ -29,9 +29,9 @@ const Wrapper = styled.nav`
             }
             .logout{
                 border:none;
-                padding:10px;
-                background:#454645;
-                height:16px;
+                padding:2px 4px;
+                color:#fff;
+                background:#292;
             }
         }
     }

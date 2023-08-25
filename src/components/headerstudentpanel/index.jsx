@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import Wrapper from './style';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
 import { IconContext } from 'react-icons';
+const navigate = useNavigate('')
 const HeaderStudentPanel = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
+  const logout = () =>{
+    window.localStorage.clear()
+    navigate('/')
+  }
 
   return (
     <Wrapper>
@@ -24,12 +30,17 @@ const HeaderStudentPanel = () => {
             </Link>
           </li>
           <li>
+            <Link className='menu-item' to='/profile' onClick={toggleMenu}>
+              View Profile
+            </Link>
+          </li>
+          <li>
             <Link className='menu-item' to='/studpanel' onClick={toggleMenu}>
               Student Panel
             </Link>
           </li>
           <li>
-            <button className='logout'>Logout</button>
+            <button className='logout' onClick={logout}>Logout</button>
           </li>
         </ul>
       </div>
