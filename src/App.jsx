@@ -24,7 +24,7 @@ function App() {
     window.location.reload(); // Refresh the page after successful login
   };
   useEffect(() => {
-    if (isLoggedIn) {
+    if (!isLoggedIn) {
       window.localStorage.clear();
     }
   }, [isLoggedIn]);
