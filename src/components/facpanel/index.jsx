@@ -22,8 +22,9 @@ const Facpanel = () => {
   }
 
   const gotoSheet = (section) => {
-    navigate(`/markattd?sectionId=${section.id}`)
+    navigate(`/subject?sectionId=${section.id}`);
   }
+
   return (
     <Wrapper>
       <div className="inner">
@@ -36,7 +37,7 @@ const Facpanel = () => {
 
         <div className="sections">
           {
-            filteredSections.map(section => <input type="button" key={section.id} className='section' value={section.name} onClick={e => gotoSheet(section)} />)
+            filteredSections.map(section => <input type="button" key={section.id} className='section' value={section.name} onClick={(e) => gotoSheet(section)} />)
           }
         </div>
       </div>

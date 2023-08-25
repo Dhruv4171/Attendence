@@ -50,5 +50,35 @@ export const services = {
                 }]
             })
         },1000)
+    }),
+    getSubjects : () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({
+                data : [{
+                    id : 'DBMS',
+                    name : 'DBMS'
+                },{
+                    id : 'DSA',
+                    name : 'DSA'
+                },
+                {
+                    id : 'OOP',
+                    name : 'OOP'
+                },
+                {
+                    id : 'AI',
+                    name : 'AI'
+                },
+                {
+                    id : 'DCCN',
+                    name : 'DCCN'
+                },
+                {
+                    id : 'ML',
+                    name : 'ML'
+                }
+            ]
+            })
+        },1000)
     })
 }

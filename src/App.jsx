@@ -14,6 +14,7 @@ import Footer from "./components/footer";
 import MarkAttd from "./components/markattd";
 import ForgotPass from "./components/forgotpass";
 import { useEffect, useState } from "react";
+import Subject from "./components/subject";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("registered") === "true"
@@ -34,9 +35,10 @@ function App() {
           <>
             <Route path="/updateprofile" element={<UpdateProfile />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel />:</>} />
+            <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
             <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
-            <Route path="/markattd/:sectionId" element={<MarkAttd />} />
+            <Route path="/subject" element={<Subject />} />
+            <Route path="/markattd" element={<MarkAttd />} />
             <Route path="/*" element={<PageError />} />
           </>
         ) : (
