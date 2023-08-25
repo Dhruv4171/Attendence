@@ -26,9 +26,6 @@ function App() {
     window.location.reload();
   };
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
     if (!isLoggedIn) {
       window.localStorage.clear();
     }
