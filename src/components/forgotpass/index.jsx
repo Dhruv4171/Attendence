@@ -33,7 +33,7 @@ const ForgotPass = () => {
             password
           })
           .then((res) => {
-            alert("Hehehehehhe......Password changed Successfully.")
+            alert("Password changed Successfully.")
             // navigate('/')
             console.log(res.data)
           })

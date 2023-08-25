@@ -18,8 +18,9 @@ const Login = () => {
         console.log(res.data);
         localStorage.setItem("registered", true)
         localStorage.setItem("userinfo", JSON.stringify(res.data))
-        if(res.data.role === 'student'){
-          navigate('/profile')
+        
+        if(res.data.user.role === 'student'){
+          navigate('/studpanel')
         }else
         navigate('/facpanel')
       })
