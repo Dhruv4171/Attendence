@@ -1,12 +1,12 @@
 import React from 'react'
-import './footer.css'
+import Wrapper from './style'
 const Footer = () => {
   return (
-    <div>
+    <Wrapper>
         <div className='footer'>
         <p>&copy; 2023 TruAttendance App. All rights reserved.</p>
         </div>
-    </div>
+    </Wrapper>
   )
 }
 
