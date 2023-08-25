@@ -10,7 +10,7 @@ const SignUp = () => {
     const [password,setPasswod] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
     const [role,setRole] = useState('')
-    const [section, setSection] = useState('')
+    const [sectionid, setSectionid] = useState('')
     const [passwordMatch,setPasswordMatch] = useState(true)
 
     const navigate = useNavigate()
@@ -27,7 +27,7 @@ const SignUp = () => {
             contact,
             password,
             role,
-            section
+            sectionid
           }).then(res=>{
               console.log(res)
               navigate('/login')
@@ -79,7 +79,7 @@ const SignUp = () => {
         </select>
         <div className='stu-container'>
             {role === 'student' && (
-              <StudentRole section={section} setSection={setSection}/>
+              <StudentRole sectionid={sectionid} setSectionid={setSectionid}/>
             )}
         </div>
         </div>

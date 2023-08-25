@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { services } from '../../services'
 
-const StudentRole = ({ section, setSection }) => {
+const StudentRole = ({ sectionid, setSectionid }) => {
   const [sections, setSections] = useState([])
   useEffect(() => {
     services.getSections()
@@ -14,8 +14,8 @@ const StudentRole = ({ section, setSection }) => {
   }, []);
   return (
     <div>
-      <input list="sections" name="section" id="section" placeholder='---Select Section---'/>
-      <datalist id="sections" required value={section} onChange={(e) => setSection(e.target.value)}>
+      <input list="sections" name="section" id="section" required value={sectionid} onChange={(e) => setSectionid(e.target.value)} placeholder='---Select Section---'/>
+      <datalist id="sections">
         {
           sections.map(sec => {
             return (<option value={sec.id}>
