@@ -16,6 +16,7 @@ import ForgotPass from "./components/forgotpass";
 import { useEffect, useState } from "react";
 import Subject from "./components/subject";
 import Loader from "./components/loader";
+import AttdList from "./components/attdlist";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -48,6 +49,7 @@ function App() {
             <Route path="/subject" element={<><HeaderFacultyPanel /><Subject /></>} />
             <Route path="/markattd" element={<MarkAttd />} />
             <Route path="/loader" element={<Loader/>}/>
+            <Route path="/attdlist" element={<><HeaderStudentPanel /><AttdList /></>} />
             <Route path="/*" element={<PageError />} />
           </>
         ) : (

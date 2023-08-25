@@ -1,9 +1,14 @@
 import React from 'react'
 import { Wrapper } from './style'
+import { useNavigate } from 'react-router'
 
 const StudPanel = () => {
   const user = JSON.parse(window.localStorage.getItem("userinfo")).user
-  console.log(user)
+  const navigate = useNavigate()
+
+  const displayAttd = () => {
+    navigate('/attdlist')
+  }
   return (
     <Wrapper>
 
@@ -21,7 +26,7 @@ const StudPanel = () => {
                         </div>
                         <div className='panel_btn'>
                             <form>
-                              <input type="button" value="View Attendance" />
+                              <input type="button" value="View Attendance" onClick={displayAttd} />
                               <input type="button" value="" />
                             </form>
                         </div>

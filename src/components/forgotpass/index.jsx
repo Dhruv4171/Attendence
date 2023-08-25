@@ -34,7 +34,7 @@ const ForgotPass = () => {
           })
           .then((res) => {
             alert("Password changed Successfully.")
-            navigate('/')
+            navigate('/login')
             console.log(res.data)
           })
           .catch( (err) => {

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Wrapper from './style';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const [contact, setContact] = useState('');

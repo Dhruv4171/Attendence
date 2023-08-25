@@ -16,12 +16,10 @@ const MarkAttd = () => {
     useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/user/read')
             .then(res => {
-                console.log(res.data)
                 const studentList = res.data.filter(user => user.role && user.role.toLowerCase() === 'student');
                 const studentsInSection = studentList.filter(student => student.section == sectionId);
                 setStudents(studentsInSection);
-                setAttendance(new Array(studentList.length).fill(false)); // Initialize attendance array
-                
+                setAttendance(new Array(studentsInSection.length).fill(false)); // Initialize attendance array
             })
             .catch(error => {
                 console.log('Error fetching student data:', error);
