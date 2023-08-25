@@ -22,8 +22,10 @@ const Login = () => {
   
         if(res.data.user.role === 'student'){
           navigate('/studpanel')
+          window.location.reload();
         }else
         navigate('/facpanel')
+        window.location.reload();
       })
       .catch((error) => {  
         console.log('API Request Failed', error);

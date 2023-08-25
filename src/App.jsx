@@ -13,23 +13,40 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import MarkAttd from "./components/markattd";
 import ForgotPass from "./components/forgotpass";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 function App() {
-  useEffect(()=>{
-    window.localStorage.clear();
-  },[])
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("registered") === "true"
+  );
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    window.location.reload(); // Refresh the page after successful login
+  };
+  useEffect(() => {
+    if (!isLoggedIn) {
+      window.localStorage.clear();
+    }
+  }, [isLoggedIn]);
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<><Header/><SignUp/></>}/>
-      <Route path="/login" element={<><Header/><Login/></>} />
-      <Route path="/updateprofile" element={<UpdateProfile/>}/>
-      <Route path="/profile" element={<Profile />}/>
-      <Route path='/studpanel' element={<><HeaderStudentPanel/><StudPanel />:</>}/>
-      <Route path='/facpanel' element={<><HeaderFacultyPanel/><Facpanel/></>}/>
-      <Route path="/markattd/:sectionId" element={<MarkAttd />} />
-      <Route path = '/forgotpass' element = {<ForgotPass />} />
-      <Route path = '/*' element = {<PageError />} />
+    {isLoggedIn ? (
+          <>
+            <Route path="/updateprofile" element={<UpdateProfile />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel />:</>} />
+            <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
+            <Route path="/markattd/:sectionId" element={<MarkAttd />} />
+            <Route path="/*" element={<PageError />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<><Header /><SignUp /></>} />
+            <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
+            <Route path="/forgotpass" element={<ForgotPass />} />
+            <Route path="/*" element={<PageError />} />
+          </>
+        )}
     </Routes>
     <Footer/>
     </BrowserRouter>
