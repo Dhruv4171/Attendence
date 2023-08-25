@@ -14,7 +14,7 @@ const HeaderFacultyPanel = () => {
 
   const logout = () =>{
     window.localStorage.clear();
-    navigate('/')
+    navigate('/login')
     window.location.reload();
   }
   return (
