@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { Wrapper } from "./style";
+import  Wrapper  from "./style";
 
 
 const ForgotPass = () => {
@@ -46,13 +46,12 @@ const ForgotPass = () => {
     }
     return (
         <Wrapper>
-            <div className="main">
-            <form>
+            <div className="inner">
+              <h1>Forgot Password</h1>
               <input type="text" name="" id="" placeholder="Contact " value={contact} onChange={ (e) => setContact(e.target.value)}/>
               <input type="password" name="" id="" placeholder="Enter New Password" value ={password} onChange={ (e) => {setPassword(e.target.value)}}/>
               <input type="password" name="" id="" placeholder="Confirm Password" value ={confirmPassword} onChange={ (e) =>{setConfirmPassword(e.target.value)}}/>
               <input type="button" value="Proceed" onClick={changePass}/>
-            </form>
             </div>
         </Wrapper>
     )

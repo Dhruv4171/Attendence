@@ -28,6 +28,11 @@ const Header = () => {
               Login
             </Link>
           </li>
+          <li>
+            <Link className='menu-item' to='/forgotpass' onClick={toggleMenu}>
+              Forget Password
+            </Link>
+          </li>
         </ul>
       </div>
       <IconContext.Provider value={{ color: '#fff', size: '16px' }}>

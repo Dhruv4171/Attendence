@@ -54,7 +54,7 @@ function App() {
           <>
             <Route path="/" element={<><Header /><SignUp /></>} />
             <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
-            <Route path="/forgotpass" element={<ForgotPass />} />
+            <Route path="/forgotpass" element={<><Header/><ForgotPass/> </>} />
             <Route path="/*" element={<PageError />} />
           </>
         )}

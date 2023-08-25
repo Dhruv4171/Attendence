@@ -3,6 +3,9 @@ const { styled } = require("styled-components");
 const Wrapper = styled.div`
 margin : 50px 0;
 .inner{
+    h1{
+        text-align:center;
+    }
     input,select{
         width : 100%;
         padding : 10px;
