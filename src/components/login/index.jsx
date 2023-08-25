@@ -16,6 +16,8 @@ const Login = () => {
     })
     .then((res) => {
         console.log(res.data);
+        localStorage.setItem("registered", true)
+        localStorage.setItem("userinfo", JSON.stringify(res.data))
         if(res.data.role === 'student'){
           navigate('/profile')
         }else
