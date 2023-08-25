@@ -4,6 +4,7 @@ import Wrapper from './style';
 
 
 const Loader = () => {
+  
   return (
     <Wrapper>
       <div className='loader'>

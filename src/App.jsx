@@ -27,8 +27,10 @@ function App() {
   };
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading(false); 
-    }, 2000);
+      setIsLoading(false);
+    }, 1000); 
+  }, []);
+  useEffect(() => {
     if (!isLoggedIn) {
       window.localStorage.clear();
     }
@@ -56,10 +58,10 @@ function App() {
             <Route path="/*" element={<PageError />} />
           </>
         )}
-        <Footer/>
+        
     </Routes>
     )}
-    
+    <Footer/>
     </BrowserRouter>
   );
 }
