@@ -13,7 +13,11 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import MarkAttd from "./components/markattd";
 import ForgotPass from "./components/forgotpass";
+import { useEffect } from "react";
 function App() {
+  useEffect(()=>{
+    window.localStorage.clear();
+  },[])
   return (
     <BrowserRouter>
     <Routes>
