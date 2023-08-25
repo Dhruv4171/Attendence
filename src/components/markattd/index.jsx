@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
-// import { useParams } from 'react-router';
 const MarkAttd = () => {
     let sectionId = new URLSearchParams(window.location.search).get('sectionId');
     let subjectId = new URLSearchParams(window.location.search).get('subjectId');
@@ -12,21 +11,23 @@ const MarkAttd = () => {
     const [students, setStudents] = useState([]);
     const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
     const [attendance, setAttendance] = useState([])
-
     const navigate = useNavigate()
 
     useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/user/read')
             .then(res => {
+                console.log(res.data)
                 const studentList = res.data.filter(user => user.role && user.role.toLowerCase() === 'student');
-                setStudents(studentList);
+                const studentsInSection = studentList.filter(student => student.section == sectionId);
+                setStudents(studentsInSection);
                 setAttendance(new Array(studentList.length).fill(false)); // Initialize attendance array
+                
             })
             .catch(error => {
                 console.log('Error fetching student data:', error);
             });
     }, []);
-
+    
     const markAttendance = () => {
         console.log(students)
         console.log(sectionId)
