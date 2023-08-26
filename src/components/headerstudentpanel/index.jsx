@@ -41,7 +41,7 @@ const HeaderStudentPanel = () => {
             </Link>
           </li>
           <li>
-            <button className='logout' onClick={logout}>Logout</button>
+            <Link className='logout' onClick={logout}>Logout</Link>
           </li>
         </ul>
       </div>

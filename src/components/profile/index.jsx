@@ -2,42 +2,39 @@ import React, { useState, useEffect } from 'react'
 import Wrapper from './style'
 import axios from 'axios'
 
-
 const Pr = () => {
-    const [users, setUsers] = useState([])
-    const [ curruser, setCurruser ] = useState({})
-    const userContact = JSON.parse(window.localStorage.getItem('userinfo')).user.contact
-    var foundUser = null
-    useEffect( () => {
+    const [users, setUsers] = useState([]);
+    const [curruser, setCurruser] = useState({});
+    const userContact = JSON.parse(window.localStorage.getItem('userinfo')).user.contact;
+    var foundUser = null;
+
+    useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/user/read')
-        .then((res) => {
-            console.log(res.data);
-            setUsers(res.data);
-            console.log(users);
-        })
-        .catch((error) => {  
-            console.log(error.message);
-        });
-    }, [])
-    
+            .then((res) => {
+                setUsers(res.data);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    }, []);
+
     useEffect(() => {
         foundUser = users.find(user => user.contact === userContact);
         if (foundUser) {
             setCurruser(foundUser);
         }
     }, [users, userContact]);
-    console.log(curruser)
+
+    const imgSrc = curruser.img ? curruser.img : 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60';
 
     return (
-        
         <Wrapper>
-
             <div className="inner">
                 <div key={curruser.id} className='user_container'>
                     <div className='personal_container'>
                         <div className='img_container'>
                             <h1>Personal Details</h1>
-                            <img src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='user_img' />
+                            <img src={imgSrc} alt='user_img' />
                         </div>
                         <div className='details container'>
                             <p className='top_info'>Name</p>
@@ -72,4 +69,4 @@ const Pr = () => {
     )
 }
 
-export default Pr
+export default Pr;

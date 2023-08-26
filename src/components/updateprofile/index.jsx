@@ -37,7 +37,7 @@ const UpdateProfile = () => {
       .catch( (err) => {
         console.log(err)
       })
-      navigate('/profile')
+      navigate('/studpanel')
     }
   return (
     <Wrapper>

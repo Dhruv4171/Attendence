@@ -15,7 +15,7 @@ const Wrapper = styled.nav`
         justify-content:center;
         li{
             list-style:none;
-            padding:0 20px;
+            padding:8px 20px;
             position:relative;
             a{
                 text-decoration:none;
@@ -31,7 +31,7 @@ const Wrapper = styled.nav`
                 border:none;
                 padding:2px 4px;
                 color:#fff;
-                background:#292;
+                // background:#F24C3D;
             }
         }
     }
