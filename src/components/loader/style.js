@@ -7,6 +7,6 @@ const Wrapper = styled.div`
         text-align:center;
         width:100%;
         height:100vh;
-        margin:50px auto;
+        margin:180px auto;
 `
 export default Wrapper;
