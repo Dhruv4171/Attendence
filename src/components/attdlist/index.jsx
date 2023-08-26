@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { services } from '../../services'; // Import the services
 
 const AttdList = () => {
     const [studentsInSection, setStudentsInSection] = useState([]);
     const [attendance, setAttendance] = useState([]);
-    const userSection = JSON.parse(window.localStorage.getItem("userinfo")).user.section;
+    const [subjects, setSubjects] = useState([]); // State to store subjects
+
+    const userSection = JSON.parse(window.localStorage.getItem("userinfo")).user.sectionId;
     const userContact = JSON.parse(window.localStorage.getItem("userinfo")).user.contact;
 
     useEffect(() => {
@@ -19,10 +22,19 @@ const AttdList = () => {
         axios.get('https://quizattendace.onrender.com/api/user/read')
             .then(res => {
                 const studentList = res.data.filter(user => user.role && user.role.toLowerCase() === 'student');
-                setStudentsInSection(studentList.filter(student => student.section === userSection));
+                setStudentsInSection(studentList.filter(student => student.sectionId === userSection));
             })
             .catch(error => {
                 console.log('Error fetching student data:', error);
+            });
+
+        // Fetch subjects from the service and set the subjects state
+        services.getSubjects()
+            .then(response => {
+                setSubjects(response.data);
+            })
+            .catch(error => {
+                console.log('Error fetching subjects:', error);
             });
     }, [userSection]);
 
@@ -51,13 +63,20 @@ const AttdList = () => {
     return (
         <div>
             <h1>Your Attendance</h1>
-            {Object.keys(attendance[userSection] || {}).map((subject, index) => (
-                <div key={index}>
-                    <h2>{subject}</h2>
-                    <p>Total Presents: {calculateSubjectAttendance(subject).totalPresents}</p>
-                    <p>Total Absents: {calculateSubjectAttendance(subject).totalAbsents}</p>
-                </div>
-            ))}
+            {subjects.map((subject) => {
+                const presentCount = calculateSubjectAttendance(subject.id).totalPresents;
+                const absentCount = calculateSubjectAttendance(subject.id).totalAbsents;
+                const attendancePercent = (presentCount / (presentCount + absentCount)) * 100;
+
+                return (
+                    <div key={subject.id}>
+                        <h2>{subject.name}</h2>
+                        <p>Presents: {presentCount}</p>
+                        <p>Absents: {absentCount}</p>
+                        <p>Attendance: {attendancePercent.toFixed(2)}%</p>
+                    </div>
+                );
+            })}
         </div>
     );
 };

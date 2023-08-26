@@ -49,7 +49,7 @@ const StudPanel = () => {
                         </div>
                         <div className='details container'>
                             <h2 className='user_info'>{curruser.name}</h2>
-                            <p className='user_info'>{curruser.sectionId}</p>
+                            <h3 className='user_info'>{curruser.sectionId}</h3>
                         </div>
                         <div className='panel_btn'>
                             <form>
