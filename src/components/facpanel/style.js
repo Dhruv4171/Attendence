@@ -13,6 +13,7 @@ const Wrapper = styled.section`
         display : flex;
         flex-wrap : wrap;
         margin:auto 5px;
+        padding: 5px;
     }
 
     .section{
@@ -21,9 +22,12 @@ const Wrapper = styled.section`
         text-align : center;
         line-height : 100px;
         flex : 1;
-        margin-left:5px;
+        margin:5px;
         border : solid thin #ccc;
         font-size : 1.2rem;
+    }
+    .section:hover{
+        cursor: pointer;
     }
     h1 {
         text-align: center; 

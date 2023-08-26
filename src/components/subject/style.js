@@ -15,6 +15,7 @@ input[type=search]{
     display : flex;
     flex-wrap : wrap;
     margin:auto 5px;
+    padding: 5px;
 }
 
 .subject{
@@ -23,9 +24,12 @@ input[type=search]{
     text-align : center;
     line-height : 100px;
     flex : 1;
-    margin-left:5px;
+    margin:5px;
     border : solid thin #ccc;
     font-size : 1.2rem;
+}
+.subject:hover{
+    cursor: pointer;
 }
 h1 {
     text-align: center;

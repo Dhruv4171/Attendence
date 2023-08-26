@@ -10,7 +10,7 @@ const SignUp = () => {
     const [password,setPasswod] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
     const [role,setRole] = useState('')
-    const [section, setSection] = useState('')
+    const [sectionId, setSectionId] = useState('')
     const [passwordMatch,setPasswordMatch] = useState(true)
 
     const navigate = useNavigate()
@@ -27,9 +27,10 @@ const SignUp = () => {
             contact,
             password,
             role,
-            section
+            sectionId
           }).then(res=>{
               console.log(res)
+              alert("Registered Sucessfully! You can login now.")
               navigate('/login')
           })
           .catch(error =>{
@@ -79,7 +80,7 @@ const SignUp = () => {
         </select>
         <div className='stu-container'>
             {role === 'student' && (
-              <StudentRole section={section} setSection={setSection}/>
+              <StudentRole sectionId={sectionId} setSectionId={setSectionId}/>
             )}
         </div>
         </div>

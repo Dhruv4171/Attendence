@@ -6,8 +6,6 @@ const MarkAttd = () => {
     let sectionId = new URLSearchParams(window.location.search).get('sectionId');
     let subjectId = new URLSearchParams(window.location.search).get('subjectId');
 
-    // let date = new Date();
-
     const [students, setStudents] = useState([]);
     const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
     const [attendance, setAttendance] = useState([])
@@ -17,20 +15,16 @@ const MarkAttd = () => {
         axios.get('https://quizattendace.onrender.com/api/user/read')
             .then(res => {
                 const studentList = res.data.filter(user => user.role && user.role.toLowerCase() === 'student');
-                const studentsInSection = studentList.filter(student => student.section == sectionId);
+                const studentsInSection = studentList.filter(student => student.sectionId === sectionId);
                 setStudents(studentsInSection);
-                setAttendance(new Array(studentsInSection.length).fill(false)); // Initialize attendance array
+                setAttendance(new Array(studentsInSection.length).fill(false)); 
             })
             .catch(error => {
                 console.log('Error fetching student data:', error);
             });
-    }, []);
+    }, [sectionId]);
     
     const markAttendance = () => {
-        console.log(students)
-        console.log(sectionId)
-        console.log(subjectId)
-        console.log(attendance)
         axios.post('https://quizattendace.onrender.com/api/attendance/mark', {
             sectionId: sectionId,
             subjectId: subjectId,
