@@ -40,7 +40,6 @@ const MarkAttd = () => {
                 console.log('Attendance marked successfully:', res.data);
                 alert("Attendance Marked Successfully!!")
                 navigate('/facpanel')
-                // You can perform any additional actions after marking attendance
         })
         .catch(error => {
                 console.error('Error marking attendance:', error);
