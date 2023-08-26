@@ -22,6 +22,9 @@ const { styled } = require("styled-components");
                 border-bottom : solid 3px #070;
                 border-radius : 3px;
             }
+            &[type=button]:hover{
+                cursor:pointer;
+            }
         }
     }
 `

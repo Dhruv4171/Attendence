@@ -9,6 +9,11 @@ const StudPanel = () => {
   const displayAttd = () => {
     navigate('/attdlist')
   }
+
+  const displayProfile = () => {
+    navigate('/updateprofile')
+  }
+
   return (
     <Wrapper>
 
@@ -26,7 +31,7 @@ const StudPanel = () => {
                         <div className='panel_btn'>
                             <form>
                               <input type="button" value="View Attendance" onClick={displayAttd} />
-                              <input type="button" value="Update Profile" />
+                              <input type="button" value="Update Profile" onClick={displayProfile}/>
                             </form>
                         </div>
                     </div>

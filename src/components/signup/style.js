@@ -22,6 +22,9 @@ margin : 50px 0;
             border-bottom : solid 3px #070;
             border-radius : 3px;
         }
+        &[type=button]:hover{
+            cursor:pointer;
+        }
     }
 }
 `
