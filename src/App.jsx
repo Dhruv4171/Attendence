@@ -30,7 +30,6 @@ function App() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000); 
-    window.localStorage.clear();
   }, []);
   useEffect(() => {
     if (!isLoggedIn) {

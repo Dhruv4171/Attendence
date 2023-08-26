@@ -30,9 +30,9 @@ const ForgotPass = () => {
 
   const changePass = () => {
     // console.log(contact)
-    if (passwordMatch) {
-      users.forEach((user) => {
+    users.forEach((user) => {
         if (user.contact == contact) {
+          if(passwordMatch){
           axios.post('https://quizattendace.onrender.com/api/user/resetPassword',
             {
               contact,
@@ -46,20 +46,22 @@ const ForgotPass = () => {
             .catch((err) => {
               console.log(err.message)
             })
+          }
+          else{
+            alert('Check password and confirm password field')
+          }
         }
-      })
-    }
-    else{
-      alert('Check password and confirm password')
-    }
+    })
   }
   return (
     <Wrapper>
       <div className="inner">
         <h1>Forgot Password</h1>
         <input type="text" name="" id="" placeholder="Contact " value={contact} onChange={(e) => setContact(e.target.value)} />
-        <input type="password" name="" id="" placeholder="Enter New Password" value={password} onChange={(e)=>    {setPassword(e.target.value)
-                      validatePassword(e.target.value,confirmPassword)}} />
+        <input type="password" name="" id="" placeholder="Enter New Password" value={password} onChange={(e) => {
+          setPassword(e.target.value)
+          validatePassword(e.target.value, confirmPassword)
+        }} />
         <input type="password" name="" id="" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => {
           setConfirmPassword(e.target.value)
           validatePassword(password, e.target.value)
