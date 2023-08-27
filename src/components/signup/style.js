@@ -26,6 +26,14 @@ margin : 50px 0;
             cursor:pointer;
         }
     }
+    .bottom_text{
+        text-align:center;
+        a{
+            margin-top:10px;
+            text-decoration:none;
+            color:#000;
+        }
+    }
 }
 `
 export default Wrapper

@@ -26,6 +26,19 @@ const { styled } = require("styled-components");
                 cursor:pointer;
             }
         }
+        .forgot_text{
+            margin-top:10px;
+            text-decoration:none;
+            color:#000;
+        }
+        .bottom_text{
+            text-align:center;
+            a{
+                margin-top:10px;
+                text-decoration:none;
+                color:#000;
+            }
+        }
     }
 `
  export default Wrapper

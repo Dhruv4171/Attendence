@@ -89,7 +89,7 @@ const SignUp = () => {
           value='Sign up'
           onClick={signUp}
         /> 
-      <p className='bottom_text'>Already have an account?<Link className='link' to='/login'>Login</Link></p>
+      <p className='bottom_text'><Link className='link' to='/login'>Already have an account?Login</Link></p>
       </div>
     </Wrapper>
   )
