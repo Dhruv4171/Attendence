@@ -51,6 +51,7 @@ const ForgotPass = () => {
             alert('Check password and confirm password field')
           }
         }
+          
     })
   }
   return (

@@ -35,8 +35,9 @@ const UpdateProfile = () => {
         console.log(res.data)
         if (JSON.parse(window.localStorage.getItem("userinfo")).role === 'student') {
           navigate('/studpanel')
+        } else {
+          navigate('/facpanel')
         }
-        else navigate('/facpanel')
       })
       .catch((err) => {
         console.log(err)
@@ -107,7 +108,7 @@ const UpdateProfile = () => {
         />
         <input
           type='button'
-          value='Register'
+          value='Update Profile'
           onClick={register}
         />
       </div>
