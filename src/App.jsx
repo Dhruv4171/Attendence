@@ -41,7 +41,9 @@ function App() {
     {isLoading?<Loader />:(
     <Routes>
     {isLoggedIn ? (
-          <>
+          <><Route path="/" element={<><Header /><SignUp /></>} />
+            <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
+            <Route path="/forgotpass" element={<><Header/><ForgotPass/> </>} />
             <Route path="/updateprofile" element={<UpdateProfile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
