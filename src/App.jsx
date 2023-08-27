@@ -29,6 +29,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
+      window.location.reload(); 
     }, 1000); 
   }, []);
   useEffect(() => {
@@ -41,7 +42,10 @@ function App() {
     {isLoading?<Loader />:(
     <Routes>
     {isLoggedIn ? (
-          <>
+          <><Route path="/" element={<><Header /><SignUp /></>} />
+            <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
+            <Route path="/forgotpass" element={<><Header/><ForgotPass/> </>} />
+            <Route path="/*" element={<PageError />} />
             <Route path="/updateprofile" element={<UpdateProfile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
@@ -50,7 +54,6 @@ function App() {
             <Route path="/markattd" element={<MarkAttd />} />
             <Route path="/loader" element={<Loader/>}/>
             <Route path="/attdlist" element={<><HeaderStudentPanel /><AttdList /></>} />
-            <Route path="/*" element={<PageError />} />
           </>
         ) : (
           <>
