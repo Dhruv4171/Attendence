@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { services } from '../../services'; // Import the services
+import Wrapper from './style';
 
 const AttdList = () => {
     const [studentsInSection, setStudentsInSection] = useState([]);
@@ -61,23 +62,25 @@ const AttdList = () => {
     };
 
     return (
-        <div>
-            <h1>Your Attendance</h1>
-            {subjects.map((subject) => {
-                const presentCount = calculateSubjectAttendance(subject.id).totalPresents;
-                const absentCount = calculateSubjectAttendance(subject.id).totalAbsents;
-                const attendancePercent = (presentCount / (presentCount + absentCount)) * 100;
+        <Wrapper>
+            <div className="inner">
+                    <h1>Your Attendance</h1>
+                    {subjects.map((subject) => {
+                        const presentCount = calculateSubjectAttendance(subject.id).totalPresents;
+                        const absentCount = calculateSubjectAttendance(subject.id).totalAbsents;
+                        const attendancePercent = (presentCount / (presentCount + absentCount)) * 100;
 
-                return (
-                    <div key={subject.id}>
-                        <h2>{subject.name}</h2>
-                        <p>Presents: {presentCount}</p>
-                        <p>Absents: {absentCount}</p>
-                        <p>Attendance: {attendancePercent.toFixed(2)}%</p>
-                    </div>
-                );
-            })}
-        </div>
+                        return (
+                            <div className='card' key={subject.id}>
+                                <h2>{subject.name}</h2>
+                                <p>Presents: {presentCount}</p>
+                                <p>Absents: {absentCount}</p>
+                                <p>Attendance: {attendancePercent.toFixed(2)}%</p>
+                            </div>
+                        );
+                    })}
+            </div>
+        </Wrapper>
     );
 };
 
