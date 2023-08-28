@@ -21,7 +21,7 @@ const HeaderStudentPanel = () => {
   return (
     <Wrapper>
       <div className='header_left'>
-        <h1>Attendance-App</h1>
+        <h1>TruAttende</h1>
       </div>
       <div>
         <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
