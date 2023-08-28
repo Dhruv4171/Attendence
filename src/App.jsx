@@ -49,7 +49,7 @@ function App() {
         />
             <Route path="/" element={<><Header /><SignUp /></>} />
             <Route path="/login" element={<><Header /><Login /></>} />
-            <Route path="/forgotpass" element={<><Header/><ForgotPass/> </>} />
+            <Route path="/resetpassword" element={<><Header/><ForgotPass/> </>} />
             <Route path="/updateprofile" element={<UpdateProfile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />

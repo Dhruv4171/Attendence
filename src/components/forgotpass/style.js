@@ -12,7 +12,7 @@ margin:50px 0px;
         padding:10px;
         box-sizing:border-box;
         margin-top:10px;
-        &[type=button]{
+        &[type=submit]{
             width : 200px;
             margin : 30px auto;
             display : block;
@@ -23,7 +23,7 @@ margin:50px 0px;
             border-bottom : solid 3px #070;
             border-radius : 3px;
         }
-        &[type=button]:hover{
+        &[type=submit]:hover{
             cursor:pointer;
         }
     }
