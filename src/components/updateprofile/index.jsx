@@ -33,7 +33,7 @@ const UpdateProfile = () => {
     })
       .then((res) => {
         console.log(res.data)
-        if (JSON.parse(window.localStorage.getItem("userinfo")).role === 'student') {
+        if (JSON.parse(window.localStorage.getItem("USERINFO")).role === 'student') {
           navigate('/studpanel')
         } else {
           navigate('/facpanel')

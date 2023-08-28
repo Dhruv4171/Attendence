@@ -63,7 +63,7 @@ const SignUp = () => {
               placeholder='Contact'
               onChange={(e) => setContact(e.target.value)}
               pattern='[0-9]{10}'
-              title='Please enter a 10 digit number'
+              title='Please enter a valid 10 digit contact number'
               required
             />
             <input
@@ -99,7 +99,7 @@ const SignUp = () => {
             />
           </form>
         </div>
-        <p className='bottom_text'><Link className='link' to='/login'>Already have an account?Login</Link></p>
+        <p className='bottom_text'>Already have an account? <Link className='link' to='/login'> Login</Link></p>
       </div>
     </Wrapper>
   )

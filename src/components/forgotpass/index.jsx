@@ -59,19 +59,37 @@ const ForgotPass = () => {
     <Wrapper>
       <div className="inner">
         <h1>Forgot Password</h1>
-        <form onSubmit={changePass}>
-          <input type="text" placeholder="Contact " value={contact} onChange={(e) => setContact(e.target.value)} pattern="[0-9]{10}" title="Please enter a 10 digit number" required />
-          <input type="password" placeholder="Enter New Password" value={password}
+        <form onSubmit={changePass} >
+          <input 
+            type="text" 
+            placeholder="Contact " 
+            value={contact} onChange={(e) => setContact(e.target.value)} 
+            pattern="[0-9]{10}" 
+            title="Please enter a valid 10 digit contact number" 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Enter New Password" 
+            value={password}
             onChange={(e) => {
               setPassword(e.target.value)
-              validatePassword(e.target.value, confirmPassword)
-            }} required />
-          <input type="password" placeholder="Confirm Password" value={confirmPassword}
+              validatePassword(e.target.value, confirmPassword)}} 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Confirm Password" 
+            value={confirmPassword}
             onChange={(e) => {
               setConfirmPassword(e.target.value)
-              validatePassword(password, e.target.value)
-            }} required />
-          <input type="submit" value="Reset Password" />
+              validatePassword(password, e.target.value)}} 
+            required 
+          />
+          <input 
+            type="submit" 
+            value="Reset Password" 
+          />
         </form>
       </div>
     </Wrapper>

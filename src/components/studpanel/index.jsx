@@ -6,7 +6,7 @@ import axios from 'axios'
 const StudPanel = () => {
   const [users, setUsers] = useState([]);
   const [curruser, setCurruser] = useState({});
-  const userContact = JSON.parse(window.localStorage.getItem('userinfo')).user.contact;
+  const userContact = JSON.parse(window.localStorage.getItem('USERINFO')).user.contact;
   const navigate = useNavigate()
     var foundUser = null;
 

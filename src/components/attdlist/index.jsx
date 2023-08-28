@@ -8,8 +8,8 @@ const AttdList = () => {
     const [attendance, setAttendance] = useState([]);
     const [subjects, setSubjects] = useState([]); // State to store subjects
 
-    const userSection = JSON.parse(window.localStorage.getItem("userinfo")).user.sectionId;
-    const userContact = JSON.parse(window.localStorage.getItem("userinfo")).user.contact;
+    const userSection = JSON.parse(window.localStorage.getItem("USERINFO")).user.sectionId;
+    const userContact = JSON.parse(window.localStorage.getItem("USERINFO")).user.contact;
 
     useEffect(() => {
         axios.get('https://quizattendace.onrender.com/api/attendance/read')
