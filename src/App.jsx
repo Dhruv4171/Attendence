@@ -17,15 +17,14 @@ import { useEffect, useState } from "react";
 import Subject from "./components/subject";
 import Loader from "./components/loader";
 import AttdList from "./components/attdlist";
+import Protected from "./components/protected";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("registered") === "true"
-  );
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    window.location.reload(); 
-  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  //   window.location.reload(); 
+  // };
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -40,29 +39,25 @@ function App() {
     <BrowserRouter>
     {isLoading?<Loader />:(
     <Routes>
-    {isLoggedIn ? (
-          <><Route path="/" element={<><Header /><SignUp /></>} />
-            <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
+            <Route
+          path="/studpanel"
+          element={
+            <Protected isLoggedIn={isLoggedIn}>
+              <StudPanel />
+            </Protected>
+          }
+        />
+            <Route path="/" element={<><Header /><SignUp /></>} />
+            <Route path="/login" element={<><Header /><Login /></>} />
             <Route path="/forgotpass" element={<><Header/><ForgotPass/> </>} />
             <Route path="/updateprofile" element={<UpdateProfile />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/studpanel" element={<><HeaderStudentPanel /><StudPanel /></>} />
             <Route path="/facpanel" element={<><HeaderFacultyPanel /><Facpanel /></>} />
             <Route path="/subject" element={<><HeaderFacultyPanel /><Subject /></>} />
             <Route path="/markattd" element={<MarkAttd />} />
             <Route path="/loader" element={<Loader/>}/>
             <Route path="/attdlist" element={<><HeaderStudentPanel /><AttdList /></>} />
-            <Route path="/*" element={<PageError />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<><Header /><SignUp /></>} />
-            <Route path="/login" element={<><Header /><Login onLogin={handleLogin} /></>} />
-            <Route path="/forgotpass" element={<><Header/><ForgotPass/> </>} />
-            <Route path="/*" element={<PageError />} />
-          </>
-        )}
-        
+            <Route path="/*" element={<PageError />} />   
     </Routes>
     )}
     <Footer/>
