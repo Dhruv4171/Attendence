@@ -96,8 +96,8 @@ const MarkAttd = () => {
                             <div className='attendance-summary'>
                                 <h3>Attendance Summary</h3>
                                 <p>Students Present: {studentsPresentCount}</p>
-                                <p>Students Absent: {studentsAbsentCount}</p>
-                                <p>Attendance List: </p>
+                                <p>Students Absent : {studentsAbsentCount}</p>
+                                <p>Attendance List : </p>
                                 <ul>
                                     {students.map((student, index) => (
                                         <li key={student.id}>

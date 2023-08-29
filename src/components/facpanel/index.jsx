@@ -14,6 +14,7 @@ const Facpanel = () => {
       .then(res => {
         setSections(res.data)
         setFilteredSections(res.data)
+        
       })
   }, [])
 
