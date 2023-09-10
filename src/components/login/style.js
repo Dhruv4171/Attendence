@@ -28,8 +28,11 @@ const { styled } = require("styled-components");
         }
         .forgot_text{
             margin-top:10px;
-            text-decoration:none;
-            color:#000;
+            text-align:right;
+            a{
+                text-decoration:none;
+                color:#000;
+            }
         }
         .bottom_text{
             text-align:center;

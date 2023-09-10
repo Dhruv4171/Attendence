@@ -16,8 +16,8 @@ const Login = () => {
     })
     .then((res) => {
         console.log(res.data);
-        localStorage.setItem("registered", true)
-        localStorage.setItem("userinfo", JSON.stringify(res.data))
+        localStorage.setItem("REGISTERED", true)
+        localStorage.setItem("USERINFO", JSON.stringify(res.data))
   
         if(res.data.user.role === 'student'){
           navigate('/studpanel')
@@ -49,7 +49,9 @@ const Login = () => {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link className='forgot_text' to='/resetpassword' >Forgot Password?</Link>
+        <div className='forgot_text'>
+          <Link className='link' to='/resetpassword' >Forgot Password?</Link>
+        </div>
         <input
           type='button'
           value='Log in'

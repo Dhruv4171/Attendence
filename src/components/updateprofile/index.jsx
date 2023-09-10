@@ -16,7 +16,6 @@ const UpdateProfile = () => {
   const [img, setImgUrl] = useState('')
 
   const navigate = useNavigate()
-  // const id = new Date().getTime()
   const register = (e) => {
     e.preventDefault()
     axios.put('https://quizattendace.onrender.com/api/user/update', {
@@ -33,7 +32,9 @@ const UpdateProfile = () => {
     })
       .then((res) => {
         console.log(res.data)
-        if (JSON.parse(window.localStorage.getItem("USERINFO")).role === 'student') {
+        let userinfo=JSON.parse(window.localStorage.getItem("USERINFO"))
+        console.log(userinfo.user.role)
+        if (userinfo.user.role === "student") {
           navigate('/studpanel')
         } else {
           navigate('/facpanel')
@@ -41,7 +42,7 @@ const UpdateProfile = () => {
       })
       .catch((err) => {
         console.log(err)
-        alert("Something went Wrong! Please try again.")
+        alert("Something went Wrong! Please try again.",err)
       })
 
   }
