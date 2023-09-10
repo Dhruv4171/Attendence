@@ -68,8 +68,7 @@ const AttdList = () => {
                     {subjects.map((subject) => {
                         const presentCount = calculateSubjectAttendance(subject.id).totalPresents;
                         const absentCount = calculateSubjectAttendance(subject.id).totalAbsents;
-                        const attendancePercent = (presentCount / (presentCount + absentCount)) * 100;
-
+                        const attendancePercent = (presentCount===0)? 0.00 : (presentCount / (presentCount + absentCount)) * 100;
                         return (
                             <div className='card' key={subject.id}>
                                 <h2>{subject.name}</h2>

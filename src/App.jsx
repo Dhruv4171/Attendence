@@ -57,9 +57,10 @@ function App() {
               </Protected>
             }
           />
-          <Route path="/profile" element={<Protected isLoggedIn={isLoggedIn}>
-                <Profile />
-              </Protected>} />
+          <Route path="/profile" element={
+            <Protected isLoggedIn={isLoggedIn}>
+              <Profile />
+            </Protected>} />
           <Route path="/facpanel" element={<Protected isLoggedIn={isLoggedIn}><HeaderFacultyPanel /><Facpanel /></Protected>} />
           <Route path="/subject" element={<Protected isLoggedIn={isLoggedIn}><HeaderFacultyPanel /><Subject /></Protected >} />
           <Route path="/markattd" element={<Protected isLoggedIn={isLoggedIn}><MarkAttd /></Protected>} />
